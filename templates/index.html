@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<!-- to be filled by the Python script -->
+<h1>Product placed in Cart: <br> {{ the_title }}</h1>
+
+<h1>Related Products: <br>  
+{% for item in recommendations %}
+Name: {{item['name']}}
+Image: <img src={{item['imageAssets'][0]['mediumUrl']}}>
+Price: {{item['prices']['price']['value']}}
+{% if 'wasPrice' in item.keys() %}
+ON SALE!
+{% endif %}
+
+
+
+
+{% endfor %}
+</h1>
+
+{% endblock %}
